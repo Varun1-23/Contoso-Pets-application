@@ -12,3 +12,19 @@ C:\Users\Lenovo\source\repos\Code_01\obj\Debug\net10.0\refint\Code_01.dll
 C:\Users\Lenovo\source\repos\Code_01\obj\Debug\net10.0\Code_01.pdb
 C:\Users\Lenovo\source\repos\Code_01\obj\Debug\net10.0\Code_01.genruntimeconfig.cache
 C:\Users\Lenovo\source\repos\Code_01\obj\Debug\net10.0\ref\Code_01.dll
+C:\Users\Lenovo\source\repos\Code_01\obj\Debug\net10.0\Code_01.sourcelink.json
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.AssemblyInfoInputs.cache
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.AssemblyInfo.cs
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.csproj.CoreCompileInputs.cache
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.sourcelink.json
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.dll
+D:\c# examples\Code_01\obj\Debug\net10.0\refint\Code_01.dll
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.pdb
+D:\c# examples\Code_01\bin\Debug\net10.0\Code_01.exe
+D:\c# examples\Code_01\bin\Debug\net10.0\Code_01.deps.json
+D:\c# examples\Code_01\bin\Debug\net10.0\Code_01.runtimeconfig.json
+D:\c# examples\Code_01\bin\Debug\net10.0\Code_01.dll
+D:\c# examples\Code_01\bin\Debug\net10.0\Code_01.pdb
+D:\c# examples\Code_01\obj\Debug\net10.0\Code_01.genruntimeconfig.cache
+D:\c# examples\Code_01\obj\Debug\net10.0\ref\Code_01.dll

@@ -4,10 +4,13 @@ string petAge = "0";
 string petPhysicalCondition = "";
 string petPersonality = "";
 string petNickName = "";
+string suggestedDonation = "";
+
+decimal decimalDonation = 0.00m;
 
 int maxPets = 8;
 string? readResult;
-string[,] ourAnimals = new string[maxPets, 6];
+string[,] ourAnimals = new string[maxPets, 7];
 
 for (int i = 0; i < maxPets; i++)
 {
@@ -19,6 +22,7 @@ for (int i = 0; i < maxPets; i++)
         petAge = "2";
         petPhysicalCondition = "medium sized cream colored female golden retriever weighing about 65 pounds. housebroken.";
         petPersonality = "loves to have her belly rubbed and likes to chase her tail. gives lots of kisses.";
+        suggestedDonation = "85.00";
         petNickName = "lola";
         break;
         
@@ -28,6 +32,7 @@ for (int i = 0; i < maxPets; i++)
         petAge = "9";
         petPhysicalCondition = "large reddish-brown male golden retriever weighing about 85 pounds. housebroken.";
         petPersonality = "loves to have his ears rubbed when he greets you at the door, or at any time! loves to lean-in and give doggy hugs.";
+        suggestedDonation = "49.99";
         petNickName = "loki";
         break;
 
@@ -37,16 +42,18 @@ for (int i = 0; i < maxPets; i++)
         petAge = "1";
         petPhysicalCondition = "small white female weighing about 8 pounds. litter box trained.";
         petPersonality = "friendly";
+        suggestedDonation = "40.00";
         petNickName = "Puss";
         break;
 
         case 3:
         petSpecies = "cat";
         petId = "c4";
-        petAge = "?";
-        petPhysicalCondition = "tbd";
-        petPersonality = "tbd";
-        petNickName = "tbd";
+        petAge = "3";
+        petPhysicalCondition = "Medium sized, long hair, yellow, female, about 10 pounds. Uses litter box.";
+        petPersonality = "A people loving cat that likes to sit on your lap.";
+        suggestedDonation = "50.00";
+        petNickName = "Lion";
         break;
 
         default:
@@ -55,6 +62,7 @@ for (int i = 0; i < maxPets; i++)
         petAge = "";
         petPhysicalCondition = "";
         petPersonality = "";
+        suggestedDonation = "";
         petNickName = "";
         break;
 
@@ -66,7 +74,8 @@ for (int i = 0; i < maxPets; i++)
         ourAnimals[i, 2] = petAge;
         ourAnimals[i, 3] = petPhysicalCondition;
         ourAnimals[i, 4] = petPersonality;
-        ourAnimals[i, 5] = petNickName;   
+        ourAnimals[i, 5] = petNickName;  
+        ourAnimals[i, 6] = suggestedDonation; 
 }
 
 for (int i=0; i < maxPets; i++)
@@ -74,7 +83,7 @@ for (int i=0; i < maxPets; i++)
     if (!string.IsNullOrEmpty(ourAnimals[i,0]))
     {
         
-        for (int j=0; j < 6; j++)
+        for (int j=0; j < 7; j++)
         {
             switch (j)
             {
@@ -95,6 +104,12 @@ for (int i=0; i < maxPets; i++)
                 break;
                 case 5:
                 Console.WriteLine($"pet nickname: {ourAnimals[i,j]}");
+                break;
+                case 6:
+                if(!decimal.TryParse(suggestedDonation, out decimalDonation)){
+                    decimalDonation = 45.00m;
+                }
+                Console.WriteLine($"Suggested Donation: {decimalDonation:C2}");
                 break;
                 default:
                 Console.WriteLine("break");
@@ -141,7 +156,7 @@ do
             if (!string.IsNullOrEmpty(ourAnimals[i,0]))
             {
                 
-                for (int j=0; j < 6; j++)
+                for (int j=0; j < 7; j++)
                 {
                     switch (j)
                     {
@@ -163,6 +178,12 @@ do
                         case 5:
                         Console.WriteLine($"pet nickname: {ourAnimals[i,j]}");
                         break;
+                        case 6:
+                        if(!decimal.TryParse(ourAnimals[i,j], out decimalDonation)){
+                            decimalDonation = 45.00m;    
+                        }
+                        Console.WriteLine($"pet nickname: {decimalDonation:C2}");
+                        break;
                         default:
                         Console.WriteLine("break");
                         break;
@@ -172,10 +193,6 @@ do
         }
         Console.WriteLine("Press the Enter key to continue.");
         readResult = Console.ReadLine();
-        if (readResult != null)
-            {
-                menuSelection = readResult.ToLower().Trim();
-            }
         break;
 
         case "2":
@@ -338,22 +355,102 @@ do
             }
 
         Console.WriteLine("Press the Enter key to continue.");
-
         readResult = Console.ReadLine();
-        if (readResult != null)
-            {
-                menuSelection = readResult.ToLower().Trim();
-            }
         break;
 
         case "3":
-        Console.WriteLine("Challenge Project - please check back soon to see progress.");
+        string missingValue;
+        for(int i = 0; i < maxPets; i++)
+            {
+                if (!string.IsNullOrEmpty(ourAnimals[i, 0]))
+                {
+                    Console.WriteLine(ourAnimals[i, 0]);
+                    if(string.IsNullOrWhiteSpace(ourAnimals[i, 2]) || ourAnimals[i, 2] == "?" || ourAnimals[i, 2] == "tbd")
+                    {
+                        do
+                        {
+                            Console.WriteLine("enter the missing age value: ");
+                            readResult = Console.ReadLine();
+                            if(readResult != null)
+                            {
+                                missingValue = readResult;
+                                ourAnimals[i, 2] = missingValue;
+                            }            
+                        } while (readResult == "");       
+                    }
+                    else
+                    {
+                        Console.WriteLine(ourAnimals[i, 2]);
+                    }
+                    Console.WriteLine($"updated age value: {ourAnimals[i, 2]}");
+                    if(string.IsNullOrWhiteSpace(ourAnimals[i, 3]) || ourAnimals[i, 3] == "?" || ourAnimals[i, 3] == "tbd")
+                    {
+                        do
+                        {
+                            Console.WriteLine("enter the missing physical description value: ");
+                            readResult = Console.ReadLine();
+                            if(readResult != null)
+                            {
+                                missingValue = readResult;
+                                ourAnimals[i, 3] = missingValue;
+                            }            
+                        } while (readResult == "");
+                    }
+                    else
+                    {
+                        Console.WriteLine(ourAnimals[i, 3]);
+                    }   
+                    Console.WriteLine($"updated physical description value: {ourAnimals[i, 3]}");
+                }
+            }
         Console.WriteLine("Press the Enter key to continue.");
         readResult = Console.ReadLine();
         break;
 
         case "4":
-        Console.WriteLine("Challenge Project - please check back soon to see progress.");
+        for(int i = 0; i < maxPets; i++)
+            {
+                if (!string.IsNullOrEmpty(ourAnimals[i, 0]))
+                {
+                    Console.WriteLine(ourAnimals[i, 0]);
+                    if(string.IsNullOrWhiteSpace(ourAnimals[i, 4]) || ourAnimals[i, 4] == "?" || ourAnimals[i, 4] == "tbd")
+                    {
+                        do
+                        {
+                            Console.WriteLine("enter the missing personality value: ");
+                            readResult = Console.ReadLine();
+                            if(readResult != null)
+                            {
+                                missingValue = readResult;
+                                ourAnimals[i, 4] = missingValue;
+                            }            
+                        } while (readResult == "");       
+                    }
+                    else
+                    {
+                        Console.WriteLine(ourAnimals[i, 4]);
+                    }
+                    Console.WriteLine($"updated personality value: {ourAnimals[i, 4]}");
+                    if(string.IsNullOrWhiteSpace(ourAnimals[i, 5]) || ourAnimals[i, 5] == "?" || ourAnimals[i, 5] == "tbd")
+                    {
+                        do
+                        {
+                            Console.WriteLine("enter the missing nickname value: ");
+                            readResult = Console.ReadLine();
+                            if(readResult != null)
+                            {
+                                missingValue = readResult;
+                                ourAnimals[i, 5] = missingValue;
+                            }            
+                        } while (readResult == "");
+                    }
+                    else
+                    {
+                        Console.WriteLine(ourAnimals[i, 5]);
+                    }   
+                    Console.WriteLine($"updated nickname value: {ourAnimals[i, 5]}");
+                }
+            }
         Console.WriteLine("Press the Enter key to continue.");
         readResult = Console.ReadLine();
         break;
@@ -377,7 +474,25 @@ do
         break;
 
         case "8":
-        Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+        Console.Write("Enter the specific characterstic to be found on the dog: ");
+        string userInput = Console.ReadLine() ?? "";
+        for (int i = 0; i < maxPets; i++)
+            {
+                if(ourAnimals[i,1] == "dog")
+                {
+                    string[] petCharacterstic = ourAnimals[i,3].Split(" ");
+                    for(int j = 0; j < petCharacterstic.Length; j++)
+                    {
+                        if(petCharacterstic[j] == userInput)
+                        {
+                            Console.WriteLine($"id: {ourAnimals[i,0]}");
+                            Console.WriteLine($"Age: {ourAnimals[i,2]}");
+                            Console.WriteLine($"Personality: {ourAnimals[i,4]}");
+                            Console.WriteLine($"Nickname: {ourAnimals[i,5]}");
+                        }
+                    }
+                }
+            }
         Console.WriteLine("Press the Enter key to continue.");
         readResult = Console.ReadLine();
         break;

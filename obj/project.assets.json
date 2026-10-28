@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\Code_01\\Code_01.csproj",
+      "projectUniqueName": "D:\\c# examples\\Code_01\\Code_01.csproj",
       "projectName": "Code_01",
-      "projectPath": "C:\\Users\\Lenovo\\source\\repos\\Code_01\\Code_01.csproj",
+      "projectPath": "D:\\c# examples\\Code_01\\Code_01.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\source\\repos\\Code_01\\obj\\",
+      "outputPath": "D:\\c# examples\\Code_01\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
