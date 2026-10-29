@@ -476,23 +476,47 @@ do
         case "8":
         Console.Write("Enter the specific characterstic to be found on the dog: ");
         string userInput = Console.ReadLine() ?? "";
+        bool dogMtaches = false;
+        bool matchdog = false;
+        string[] searchingIcons = {".","..","..."};
+        string[] searchTerms = userInput.Split(",");
         for (int i = 0; i < maxPets; i++)
             {
                 if(ourAnimals[i,1] == "dog")
                 {
+                    // Console.WriteLine($"Searching for the {userInput} in the dog section...");
                     string[] petCharacterstic = ourAnimals[i,3].Split(" ");
-                    for(int j = 0; j < petCharacterstic.Length; j++)
+                    for(int j = 0; j < searchTerms.Length; j++)
                     {
-                        if(petCharacterstic[j] == userInput)
+                        for(int k = 0; k < petCharacterstic.Length; k++)
                         {
-                            Console.WriteLine($"id: {ourAnimals[i,0]}");
-                            Console.WriteLine($"Age: {ourAnimals[i,2]}");
-                            Console.WriteLine($"Personality: {ourAnimals[i,4]}");
-                            Console.WriteLine($"Nickname: {ourAnimals[i,5]}");
+                            for(int l = 0; l < searchingIcons.Length; l++)
+                                {
+                                    Console.Write($"\rSearching for {searchTerms[j]} match{searchingIcons[l]}     ");
+                                    Thread.Sleep(500);
+                                }
+                                Console.WriteLine();
+                            if(searchTerms[j].Trim().Equals(petCharacterstic[k], StringComparison.OrdinalIgnoreCase))
+                            {
+                                Console.WriteLine($"our dog {ourAnimals[i,5]} is a {searchTerms[j]} match");
+                                dogMtaches = true;
+                                break;
+                            }
                         }
                     }
+                    if (dogMtaches)
+                    {
+                        Console.WriteLine($"Nickname: {ourAnimals[i,5]} (ID #: {ourAnimals[i,0]})");    
+                        Console.WriteLine($"Physical Description: {ourAnimals[i,3]}");    
+                        Console.WriteLine($"Personality: {ourAnimals[i,4]}");
+                        matchdog =  true;     
+                    }  
                 }
             }
+            if (!matchdog)
+                    {
+                        Console.WriteLine("no dogs matched");
+                    }
         Console.WriteLine("Press the Enter key to continue.");
         readResult = Console.ReadLine();
         break;
